@@ -104,6 +104,8 @@ const rezepte = db.getCollection("rezepte");
 
 // ---inserts------
 
+## alle meine bisherigen inserts zu test zewcken für wp10
+
 db.schauspieler.insertMany([
 // {
 // name: "Leonardo DiCaprio",
@@ -473,3 +475,7 @@ kommentare: [],
 // { item: "def", price: 7.5, quantity: 10, date: new Date("2015-09-10T08:43:00Z") },
 // { item: "abc", price: 10, quantity: 5, date: new Date("2016-02-06T20:20:13Z") },
 // ]);
+
+---
+
+---

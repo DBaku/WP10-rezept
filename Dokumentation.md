@@ -104,6 +104,304 @@ const rezepte = db.getCollection("rezepte");
 
 // ---inserts------
 
+db.schauspieler.insertMany([
+// {
+// name: "Leonardo DiCaprio",
+// kategorien: ["Drama", "Thriller"],
+// kurzbeschreibung:
+// "Oscar-prämierter Schauspieler der bekannt für ist seine Filme wie'Inception & Wolf of of Wallstreet'.",
+// bekannte_filme: [
+// { titel: "Inception", jahr: 2010 },
+// { titel: "Titanic", jahr: 1997 },
+// { titel: "The Revenant", jahr: 2015 },
+// { titel: "Wolf of Wallstreet", jahr: 2014 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// {
+// name: "Meryl Streep",
+// kategorien: ["Drama", "Biografie"],
+// kurzbeschreibung:
+// "Mehrfach oscarprämierte Schauspielerin, bekannt für Filme wie 'Die Eiserne Lady' und 'Mamma Mia!'.",
+// bekannte_filme: [
+// { titel: "Die Eiserne Lady", jahr: 2011 },
+// { titel: "Der Teufel trägt Prada", jahr: 2006 },
+// { titel: "Mamma Mia!", jahr: 2008 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// {
+// name: "Denzel Washington",
+// kategorien: ["Drama", "Action"],
+// kurzbeschreibung:
+// "Charismatischer Schauspieler, bekannt für 'Training Day' und 'The Equalizer'.",
+// bekannte_filme: [
+// { titel: "Training Day", jahr: 2001 },
+// { titel: "The Equalizer", jahr: 2014 },
+// { titel: "Fences", jahr: 2016 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// {
+// name: "Scarlett Johansson",
+// kategorien: ["Action", "Science-Fiction"],
+// kurzbeschreibung:
+// "Bekannt für ihre Rollen im Marvel Cinematic Universe und 'Lost in Translation'.",
+// bekannte_filme: [
+// { titel: "Avengers: Endgame", jahr: 2019 },
+// { titel: "Lost in Translation", jahr: 2003 },
+// { titel: "Lucy", jahr: 2014 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// {
+// name: "Brad Pitt",
+// kategorien: ["Action", "Drama"],
+// kurzbeschreibung: "Bekannt für 'Fight Club' und 'Once Upon a Time in Hollywood'.",
+// bekannte_filme: [
+// { titel: "Fight Club", jahr: 1999 },
+// { titel: "Once Upon a Time in Hollywood", jahr: 2019 },
+// { titel: "World War Z", jahr: 2013 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// {
+// name: "Tom Hanks",
+// kategorien: ["Drama", "Komödie"],
+// kurzbeschreibung: "Legendärer Schauspieler, bekannt für 'Forrest Gump' und 'Cast Away'.",
+// bekannte_filme: [
+// { titel: "Forrest Gump", jahr: 1994 },
+// { titel: "Cast Away", jahr: 2000 },
+// { titel: "Der Soldat James Ryan", jahr: 1998 },
+// ],
+// bewertungen: [],
+// kommentare: [],
+// },
+// ]);
+
+// db.rezepte.insertOne({
+// titel: "Zucchini-Nudeln mit Pesto",
+// kategorien: ["Mittagessen", "Low Carb", "Gesund", "Schenll"],
+// kurzbeschreibung:
+// "Ein leichtes und schnelles Gericht mit Zucchini-Nudeln und hausgemachtem Pesto.",
+// zutaten: [
+// { name: "Zucchini", menge: "2" },
+// { name: "Basilikum", menge: "1 Bund" },
+// { name: "Knoblauch", menge: "1 Zehe" },
+// { name: "Pinienkerne", menge: "2 EL" },
+// { name: "Parmesan", menge: "30g" },
+// { name: "Olivenöl", menge: "3 EL" },
+// ],
+// anleitung: [
+// "Schritt 1: Zucchini mit einem Spiralschneider in Nudelform schneiden.",
+// "Schritt 2: Basilikum, Knoblauch, Pinienkerne, Parmesan und Olivenöl im Mixer zu Pesto verarbeiten.",
+// "Schritt 3: Zucchini-Nudeln in eine Pfanne geben und kurz erwärmen.",
+// "Schritt 4: Pesto darüber geben und sofort servieren.",
+// ],
+// zubereitungsdauer: 15,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Schneller Linsensalat",
+// kategorien: ["Mittagessen", "Vegetarisch", "Gesund", "Schnell"],
+// kurzbeschreibung: "Ein frischer und proteinreicher Salat mit Linsen und frischem Gemüse.",
+// zutaten: [
+// { name: "Linsen (vorgekocht)", menge: "200g" },
+// { name: "Paprika", menge: "1" },
+// { name: "Gurke", menge: "1/2" },
+// { name: "Zwiebel", menge: "1/2" },
+// { name: "Petersilie", menge: "1 Bund" },
+// { name: "Olivenöl", menge: "2 EL" },
+// { name: "Zitronensaft", menge: "2 EL" },
+// ],
+// anleitung: [
+// "Schritt 1: Paprika, Gurke und Zwiebel klein schneiden.",
+// "Schritt 2: Linsen abspülen und mit dem Gemüse mischen.",
+// "Schritt 3: Mit Olivenöl, Zitronensaft und gehackter Petersilie abschmecken.",
+// "Schritt 4: Gut vermengen und sofort servieren.",
+// ],
+// zubereitungsdauer: 10,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Quinoa-Gemüse-Bowl",
+// kategorien: ["Mittagessen", "Vegan", "Gesund", "Schnell"],
+// kurzbeschreibung: "Eine nährstoffreiche Bowl mit Quinoa und frischem Gemüse.",
+// zutaten: [
+// { name: "Quinoa", menge: "100g" },
+// { name: "Avocado", menge: "1" },
+// { name: "Gurke", menge: "1/2" },
+// { name: "Kirschtomaten", menge: "100g" },
+// { name: "Spinat", menge: "50g" },
+// { name: "Olivenöl", menge: "1 EL" },
+// { name: "Zitronensaft", menge: "1 EL" },
+// ],
+// anleitung: [
+// "Schritt 1: Quinoa nach Packungsanweisung kochen.",
+// "Schritt 2: Gemüse klein schneiden und Avocado in Scheiben schneiden.",
+// "Schritt 3: Quinoa in eine Schüssel geben, mit Gemüse und Spinat belegen.",
+// "Schritt 4: Mit Olivenöl und Zitronensaft beträufeln und sofort servieren.",
+// ],
+// zubereitungsdauer: 15,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Mango Lassi",
+// kategorien: ["Getränk", "Shake"],
+// kurzbeschreibung: "Ein erfrischendes indisches Getränk mit Mango und Joghurt.",
+// zutaten: [
+// { name: "Mango", menge: "1" },
+// { name: "Joghurt", menge: "200ml" },
+// { name: "Milch", menge: "100ml" },
+// { name: "Honig", menge: "1 EL" },
+// { name: "Kardamom", menge: "1 Prise" },
+// ],
+// anleitung: [
+// "Schritt 1: Mango schälen und das Fruchtfleisch vom Kern schneiden.",
+// "Schritt 2: Mango, Joghurt, Milch, Honig und Kardamom in einen Mixer geben und gut mixen.",
+// "Schritt 3: Kalt servieren und genießen.",
+// ],
+// zubereitungsdauer: 10,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Bananen-Schoko-Shake",
+// kategorien: ["Getränk", "Shake"],
+// kurzbeschreibung: "Ein erfrischender Shake mit Banane und Schokolade.",
+// zutaten: [
+// { name: "Banane", menge: "2" },
+// { name: "Kakaopulver", menge: "2 EL" },
+// { name: "Milch", menge: "250ml" },
+// { name: "Eiswürfel", menge: "4" },
+// ],
+// anleitung: [
+// "Schritt 1: Bananen schälen und zusammen mit den anderen Zutaten in einen Mixer geben.",
+// "Schritt 2: Alles gut mixen, bis der Shake cremig ist.",
+// "Schritt 3: In einem Glas servieren und kalt genießen.",
+// ],
+// zubereitungsdauer: 5,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Bauerntopf",
+// kategorien: ["Eintopf", "Hausmannskost"],
+// kurzbeschreibung: "Ein deftiger Eintopf mit Hackfleisch, Kartoffeln und Gemüse.",
+// zutaten: [
+// { name: "Hackfleisch", menge: "500g" },
+// { name: "Kartoffeln", menge: "700g" },
+// { name: "Paprika", menge: "2" },
+// { name: "Zwiebeln", menge: "2" },
+// { name: "Tomatenmark", menge: "2 EL" },
+// { name: "Rinderbrühe", menge: "500ml" },
+// { name: "Rotwein Merlot", menge: "200ml - 300ml" },
+// ],
+// anleitung: [
+// "Schritt 1: Kartoffeln schälen und in Würfel schneiden.",
+// "Schritt 2: Hackfleisch in einem großen Topf anbraten.",
+// "Schritt 3: Zwiebeln und Paprika hinzufügen und mit Tomatenmark anrösten.",
+// "Schritt 4: Kartoffeln, Rotwein und Brühe hinzufügen, alles köcheln lassen, bis die Kartoffeln weich sind.",
+// "Schritt 5: Mit Salz, Pfeffer und Paprika abschmecken und eventuell etwas schmand dazu.",
+// ],
+// zubereitungsdauer: 50,
+// schwierigkeitsgrad: "Mittel",
+// bewertungen: ["", ],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Lachs Tagliatelle mit Zitronensoße",
+// kategorien: ["Hauptgericht", "Pasta"],
+// kurzbeschreibung: "Tagliatelle mit frischem Lachs und einer cremigen Zitronen-Sahne-Soße.",
+// zutaten: [
+// { name: "Tagliatelle", menge: "300g" },
+// { name: "Lachsfilet", menge: "200g" },
+// { name: "Zitrone", menge: "1" },
+// { name: "Sahne", menge: "200ml" },
+// { name: "Knoblauch", menge: "1 Zehe" },
+// { name: "Olivenöl", menge: "2 EL" },
+// ],
+// anleitung: [
+// "Schritt 1: Tagliatelle in Salzwasser al dente kochen.",
+// "Schritt 2: Lachs in Würfel schneiden und in einer Pfanne mit Olivenöl anbraten.",
+// "Schritt 3: Knoblauch hinzufügen und kurz mitbraten.",
+// "Schritt 4: Sahne und den Saft einer Zitrone hinzufügen, kurz aufkochen.",
+// "Schritt 5: Tagliatelle unter die Soße mischen und sofort servieren.",
+// ],
+// zubereitungsdauer: 25,
+// schwierigkeitsgrad: "Mittel",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Big King XXL Menü",
+// kategorien: ["Fast Food", "Burger", "Favorite"],
+// kurzbeschreibung: "Ein großer, saftiger Doppelburger mit Käse, Zwiebeln und Big King Sauce.",
+// zutaten: [
+// { name: "Rindfleischpattys", menge: "2" },
+// { name: "Käse", menge: "2 Scheiben" },
+// { name: "Zwiebeln", menge: "1" },
+// { name: "Salat", menge: "2 Blätter" },
+// { name: "Big King Sauce", menge: "4 EL" },
+// { name: "Hamburger-Brötchen", menge: "1" },
+// { name: "Pommes-frites", menge: "300g" },
+// ],
+// anleitung: [
+// "Schritt 1: Burgerpattys in einer Pfanne oder auf dem Grill anbraten.",
+// "Schritt 2: Zwiebeln in Ringe schneiden und ebenfalls anbraten.",
+// "Schritt 3: Hamburger-Brötchen toasten und die Big King Sauce auf beide Hälften verteilen.",
+// "Schritt 4: Käse auf die Pattys legen, dann mit Zwiebeln und Salat belegen.",
+// "Schritt 5: Alles zusammenfügen und mit Pommes servieren.",
+// ],
+// zubereitungsdauer: 30,
+// schwierigkeitsgrad: "Mittel",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.rezepte.insertOne({
+// titel: "Erdbeer Eton Mess",
+// kategorien: ["Dessert"],
+// kurzbeschreibung:
+// "Ein einfaches, sommerliches Dessert mit frischen Erdbeeren, Baiser und Sahne.",
+// zutaten: [
+// { name: "Erdbeeren", menge: "300g" },
+// { name: "Baiser", menge: "100g" },
+// { name: "Schlagsahne", menge: "250ml" },
+// { name: "Vanillezucker", menge: "1 Päckchen" },
+// ],
+// anleitung: [
+// "Schritt 1: Erdbeeren waschen und in kleine Stücke schneiden.",
+// "Schritt 2: Schlagsahne mit Vanillezucker steif schlagen.",
+// "Schritt 3: Baiser zerbröseln und unter die Sahne mischen.",
+// "Schritt 4: Erdbeeren vorsichtig unterheben und sofort servieren.",
+// ],
+// zubereitungsdauer: 10,
+// schwierigkeitsgrad: "Einfach",
+// bewertungen: [],
+// kommentare: [],
+// });
+
 db.rezepte.insertOne({
 titel: "Beef Wellington",
 kategorien: ["Hauptgericht", "Fleisch"],

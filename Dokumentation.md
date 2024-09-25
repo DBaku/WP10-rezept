@@ -71,3 +71,107 @@ bsp für ein benutzer chema:
 Um einen Benutzer zu aktualisieren:
 
     db.benutzer.updateOne({ name: "Max Mustermann" }, { $set: { profiltext: "Ich bin ein leidenschaftlicher Koch!" } })
+
+---
+
+---
+
+## unsere heutigen inserts und abfragen +-
+
+weitere inserts in meiner rezepte collection zu finden in wp10
+
+// Select the database to use.
+use("wp10");
+
+const benutzer = db.getCollection("benutzer");
+
+// benutzer.findOne(ObjectId("66f3c627fff6a115dd5aeb91"));
+
+const rezepte = db.getCollection("rezepte");
+
+// // rezepte.findOne(ObjectId(""));
+
+// rezepte.findOne({
+// titel: "Vegane Lasagne",
+// });
+
+// rezepte.find({
+// zubereitungsdauer: { $gt: 35 },
+// });
+// rezepte.find({
+// zubereitungsdauer: { $lt: 35 },
+// });
+
+// ---inserts------
+
+db.rezepte.insertOne({
+titel: "Beef Wellington",
+kategorien: ["Hauptgericht", "Fleisch"],
+kurzbeschreibung:
+"Ein aufwendig zubereitetes Gericht mit Rinderfilet, umhüllt von Blätterteig.",
+zutaten: [
+{ name: "Rinderfilet", menge: "1kg" },
+{ name: "Blätterteig", menge: "500g" },
+{ name: "Champignons", menge: "300g" },
+{ name: "Schinken", menge: "200g" },
+{ name: "Senf", menge: "2 EL" },
+{ name: "Eigelb", menge: "1" },
+{ name: "Olivenöl", menge: "2 EL" },
+],
+anleitung: [
+"Schritt 1: Das Rinderfilet scharf anbraten und mit Senf bestreichen.",
+"Schritt 2: Champignons fein hacken und anbraten.",
+"Schritt 3: Schinken auf Klarsichtfolie legen, die Champignons darauf verteilen und das Filet darin einwickeln.",
+"Schritt 4: Den Blätterteig ausrollen und das eingewickelte Filet darin einschlagen.",
+"Schritt 5: Blätterteig mit Eigelb bestreichen und im Ofen bei 200°C für 30 Minuten backen.",
+],
+zubereitungsdauer: 90,
+schwierigkeitsgrad: "Schwer",
+bewertungen: [],
+kommentare: [],
+});
+
+// db.rezepte.insertOne({
+// titel: "Süßkartoffel Pommes",
+// kategorien: ["Hauptgericht", "Deftig"],
+// kurzbeschreibung:
+// "gesunde Süßkartoffel Pommes nach art desd Hauses mit Cajenpfeffer und ketchub+ Majo.",
+// zutaten: [
+// { name: "Süßkartoffel", menge: "450g" },
+// { name: "Oliven Oil", menge: "50ml" },
+// { name: "Pfeffer", menge: "nach Geschmack" },
+// { name: "Salz", menge: "nach Geschmack" },
+// ],
+// anleitung: [
+// "Schritt 1: Kartoffeln schneiden und anbraten.",
+// "Schritt 2: Cajenpfeffer hinzugeben und servieren.",
+// ],
+// zubereitungsdauer: 30,
+// schwierigkeitsgrad: "Sehr leicht",
+// bewertungen: [],
+// kommentare: [],
+// });
+
+// db.benutzer.insertOne({
+// name: "lax lustermann",
+// profiltext: "Ich hasse kochen!",
+// geburtstag: "1998-12-11",
+// links: { facebook: "https://facebook.com/lax", instagram: "https://instagram.com/lax" },
+// followers: [],
+// following: [],
+// rezeptbuch: [],
+// });
+
+// ----------------------
+
+// Insert a few documents into the sales collection.
+// db.getCollection("sales").insertMany([
+// { item: "abc", price: 10, quantity: 2, date: new Date("2014-03-01T08:00:00Z") },
+// { item: "jkl", price: 20, quantity: 1, date: new Date("2014-03-01T09:00:00Z") },
+// { item: "xyz", price: 5, quantity: 10, date: new Date("2014-03-15T09:00:00Z") },
+// { item: "xyz", price: 5, quantity: 20, date: new Date("2014-04-04T11:21:39.736Z") },
+// { item: "abc", price: 10, quantity: 10, date: new Date("2014-04-04T21:23:13.331Z") },
+// { item: "def", price: 7.5, quantity: 5, date: new Date("2015-06-04T05:08:13Z") },
+// { item: "def", price: 7.5, quantity: 10, date: new Date("2015-09-10T08:43:00Z") },
+// { item: "abc", price: 10, quantity: 5, date: new Date("2016-02-06T20:20:13Z") },
+// ]);

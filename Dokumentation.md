@@ -63,3 +63,11 @@ bsp für ein benutzer chema:
 }
 ]
 }
+
+---
+
+---
+
+Um einen Benutzer zu aktualisieren:
+
+    db.benutzer.updateOne({ name: "Max Mustermann" }, { $set: { profiltext: "Ich bin ein leidenschaftlicher Koch!" } })

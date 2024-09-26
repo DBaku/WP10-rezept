@@ -7,78 +7,89 @@
 
 //------------------------------------------------
 
-//rezepte.find({}); // Findet alle Dokumente in der "rezepte"-Collection
+rezepte.find({}); // Findet alle Dokumente in der "rezepte"-Collection
 
-//rezepte.insertOne({ titel: "Erdbeer Eton Mess", zutaten: [...] }); // Fügt ein neues Rezept hinzu
+// rezepte.insertOne({ titel: "Erdbeer Eton Mess", zutaten: [...] }); // Fügt ein neues Rezept hinzu
 
-// // rezepte.findOne(ObjectId("......."));
+// rezepte.findOne(ObjectId("......."));
 
-// rezepte.findOne({
-// titel: "Vegane Lasagne",
-// });
+rezepte.findOne({
+    titel: "Vegane Lasagne",
+});
 
-// rezepte.find({
-//     kategorie: "Hauptgericht",
-// });
+rezepte.find({
+    kategorie: "Hauptgericht",
+});
 
-// //finde einen authoren
-// rezepte.find({
-//     autor_id: ObjectId("6511ae27f1a1bc1d12345678"),
-// });
+//finde einen authoren
+rezepte.find({
+    autor_id: ObjectId("6511ae27f1a1bc1d12345678"),
+});
+
 // finde die zutat lachs in gerichten
-// rezepte.find({
-//     "zutaten.name": "Lachs",
-// });
+rezepte.find({
+    "zutaten.name": "Lachs",
+});
+
+rezepte.find({
+    "zutaten.name": { $in: ["Lachs", "Hähnchen"] },
+});
 
 // zeige bewertungen mit mehr als 3 und weniger als 5 *
-// rezepte.find({
-//     "bewertungen.bewertung": { $gte: 3, $lte: 5 }
-//   });
+rezepte.find({
+    "bewertungen.bewertung": { $gte: 3, $lte: 5 },
+});
+
+// $ne: gibt alle rezepte zurück bei denen die bewertung nicht 3 sterne ist.
+ezepte.find({
+    "bewertungen.bewertung": { $ne: 3 },
+});
 
 // zeige rez mit mehr als 2 bewertungen( weil start 0 ist dh mindestens 3 beweertungen )
-// rezepte.find({
-// "bewertungen.2": { $exists: true }
-//   });
+rezepte.find({
+    "bewertungen.2": { $exists: true },
+});
 
 // $lt = weniger als
-// rezepte.find({
-// zubereitungsdauer: { $lt: 20 },
-// });
+rezepte.find({
+    zubereitungsdauer: { $lt: 20 },
+});
 
 // $gt = größer als
-// rezepte.find({
-// zubereitungsdauer: { $gt: 25 },
-// });
+rezepte.find({
+    zubereitungsdauer: { $gt: 25 },
+});
 
-// rezepte.find({
-// zubereitungsdauer: { $gt: 20, $lt: 45 },
-// });
+rezepte.find({
+    zubereitungsdauer: { $gt: 20, $lt: 45 },
+});
 
 // suche nach bestimmten komments von usern
-// rezepte.find({
-//   "kommentare.benutzer_id": ObjectId("6511b828f1a1bc1d87654321")
-// });
+rezepte.find({
+    "kommentare.benutzer_id": ObjectId("6511b828f1a1bc1d87654321"),
+});
 
 // nach bestimmten datum suchen
-// rezepte.find({
-//     erstellt_am: { $gte: ISODate ("2000-09-01T00:00:00Z") }
-// });
+rezepte.find({
+    erstellt_am: { $gte: ISODate("2000-09-01T00:00:00Z") },
+});
 
 // suche nach user mit mehr als 5 rezepten
-// benutzer.find({
-// "rezeptebuch.5": { $exists: true }
-// });
+benutzer.find({
+    "rezeptebuch.5": { $exists: true },
+});
 
 // nach allen benutzer suchen, die "kochmeister123" (der nutzer mit der ID "6511ae27f1a1bc1d12345678") folgen.
-// benutzer.find({
-// folge_benutzer: ObjectId("6511ae27f1a1bc1d12345678")
-// });
+benutzer.find({
+    folge_benutzer: ObjectId("6511ae27f1a1bc1d12345678"),
+});
 
 //----------------------------
 
 //-----help-------
 
 //Zugriff auf DBRef:
+
 // MongoDB kann DBRef-Verweise auflösen, aber es erfordert eine manuelle Nachverfolgung der Verweise. Du musst also in deinem Code (z.B. in einer Node.js-Anwendung) die referenzierte Collection abfragen, um die vollständigen Daten des referenzierten Dokuments zu erhalten. Zum Beispiel könntest du das Rezept nach seiner ID suchen:
 
 // const rezepteCollection = db.getCollection("rezepte");
@@ -88,6 +99,59 @@
 // const referenziertesRezept = rezepteCollection.findOne({_id: bewertungMitRezept.rezept.$id});
 
 //----------------------------
+
+// vollständiger rezeptbuch eintrag
+
+db.rezepte.insertOne({
+    titel: "Lachs Tagliatelle mit Zitronensoße",
+    kategorien: ["Mittagessen", "Pasta", "Schenll"],
+    beschreibung: "Ein köstliches Nudelgericht mit frischem Lachs und einer cremigen Zitronensoße.",
+    zutaten: [
+        { name: "Tagliatelle", menge: "200g" },
+        { name: "Lachsfilet", menge: "150g" },
+        { name: "Zitrone", menge: "1 Stück" },
+        { name: "Sahne", menge: "100ml" },
+        { name: "Petersilie", menge: "2 EL" },
+        { name: "Olivenöl", menge: "1 EL" },
+    ],
+    anweisungen:
+        "1. Die Tagliatelle nach Packungsanweisung kochen. 2. Den Lachs in Olivenöl anbraten. 3. Sahne und Zitronensaft hinzufügen und aufkochen. 4. Mit Salz und Pfeffer würzen und die Nudeln unterheben. 5. Mit Petersilie garnieren.",
+    bilder: [
+        "https://example.com/images/lachs_tagliatelle1.jpg",
+        "https://example.com/images/lachs_tagliatelle2.jpg",
+    ],
+    autor_id: ObjectId("6511ae27f1a1bc1d12345678"),
+    bewertungen: [
+        {
+            benutzer_id: ObjectId("6511b828f1a1bc1d87654321"),
+            bewertung: 4,
+            kommentar: "Lecker, aber hätte etwas mehr Zitronengeschmack vertragen können.",
+            datum: ISODate("2024-09-24T11:15:10Z"),
+        },
+        {
+            benutzer_id: ObjectId("6511c728f1a1bc1d11223344"),
+            bewertung: 5,
+            kommentar: "Perfekt, werde es wieder kochen!",
+            datum: ISODate("2024-09-25T09:30:45Z"),
+        },
+    ],
+    kommentare: [
+        {
+            benutzer_id: ObjectId("6511b828f1a1bc1d87654321"),
+            kommentar: "Tolles Rezept, danke fürs Teilen!",
+            datum: ISODate("2024-09-24T10:45:00Z"),
+        },
+        {
+            benutzer_id: ObjectId("6511b828f1a1bc1d87654666"),
+            kommentar:
+                "Hey ObjectID('6511b828f1a1bc1d87654666') benutz doch einach das nächste mal etwas mehr zitrone!",
+            datum: ISODate("2024-09-24T10:45:00Z"),
+        },
+    ],
+    erstellt_am: ISODate("2024-09-22T13:40:00Z"),
+});
+
+// inkl. refeerenzierung auf andere user und vorhergehende kommentare
 
 //----------------------------
 

@@ -104,7 +104,7 @@ benutzer.find({
 
 db.rezepte.insertOne({
     titel: "Lachs Tagliatelle mit Zitronensoße",
-    kategorien: ["Mittagessen", "Pasta", "Schenll"],
+    kategorien: ["Mittagessen", "Pasta", "Schnell"],
     beschreibung: "Ein köstliches Nudelgericht mit frischem Lachs und einer cremigen Zitronensoße.",
     zutaten: [
         { name: "Tagliatelle", menge: "200g" },

@@ -1,0 +1,15 @@
+{
+  "name": "wp10-rezept",
+  "version": "1.0.0",
+  "description": "Herzlich Wilkommen",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": " <Dimitrij Bakumenko> (https://github.com/DBaku.com)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

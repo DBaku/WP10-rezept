@@ -72,3 +72,40 @@ function renderRecipeCard(rezept) {
 
     cardContainer.appendChild(card);
 }
+
+//db_connection aufbau
+const { MongoClient } = require("mongodb");
+
+// Verbindungs-URL von MongoDB Atlas
+const uri =
+    "mongodb+srv://dimaba487:dima1234@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority";
+
+// Erstelle eine neue MongoClient-Instanz
+const client = new MongoClient(uri);
+
+async function run() {
+    try {
+        // Verbinde zum MongoDB-Server
+        await client.connect();
+        console.log("Verbunden mit MongoDB Atlas!");
+
+        // Zugriff auf die Datenbank und Collection
+        const database = client.db("myDatabase");
+        const collection = database.collection("myCollection");
+
+        // Daten einfügen (optional)
+        const insertResult = await collection.insertOne({
+            title: "The Way of Kings",
+            author: "Brandon Sanderson",
+            pages: 1007,
+            genres: ["fantasy", "epic"],
+            rating: 9,
+        });
+        console.log("Eingefügtes Dokument:", insertResult.insertedId);
+    } finally {
+        // Verbindung schließen
+        await client.close();
+    }
+}
+
+run().catch(console.dir);

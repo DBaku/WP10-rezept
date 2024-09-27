@@ -1,4 +1,6 @@
-document.getElementById("recipeForm").addEventListener("submit", function (e) {
+// app.js
+
+document.getElementById("recipeForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Formulareingaben auslesen
@@ -44,9 +46,31 @@ document.getElementById("recipeForm").addEventListener("submit", function (e) {
         kommentare,
     };
 
-    // Rezeptkarte rendern
-    renderRecipeCard(rezept);
+    // Verbindung zur MongoDB (im Backend, nicht direkt im Browser)
+    try {
+        await saveRecipeToDB(rezept);
+        renderRecipeCard(rezept);
+    } catch (error) {
+        console.error("Fehler beim Speichern des Rezepts:", error);
+    }
 });
+
+// Funktion zum Speichern des Rezepts in die MongoDB (über Backend)
+async function saveRecipeToDB(rezept) {
+    // Hier wird normalerweise eine Anfrage an das Backend gesendet, z.B. mit Fetch oder Axios
+    // Für eine Express.js/MongoDB-Anwendung:
+    const response = await fetch("/api/rezepte", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(rezept),
+    });
+
+    if (!response.ok) {
+        throw new Error("Fehler beim Speichern in der Datenbank");
+    }
+}
 
 // Funktion zur Darstellung des Rezepts als Rezeptkarte
 function renderRecipeCard(rezept) {
@@ -72,40 +96,3 @@ function renderRecipeCard(rezept) {
 
     cardContainer.appendChild(card);
 }
-
-//db_connection aufbau
-const { MongoClient } = require("mongodb");
-
-// Verbindungs-URL von MongoDB Atlas
-const uri =
-    "mongodb+srv://dimaba487:dima1234@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority";
-
-// Erstelle eine neue MongoClient-Instanz
-const client = new MongoClient(uri);
-
-async function run() {
-    try {
-        // Verbinde zum MongoDB-Server
-        await client.connect();
-        console.log("Verbunden mit MongoDB Atlas!");
-
-        // Zugriff auf die Datenbank und Collection
-        const database = client.db("myDatabase");
-        const collection = database.collection("myCollection");
-
-        // Daten einfügen (optional)
-        const insertResult = await collection.insertOne({
-            title: "The Way of Kings",
-            author: "Brandon Sanderson",
-            pages: 1007,
-            genres: ["fantasy", "epic"],
-            rating: 9,
-        });
-        console.log("Eingefügtes Dokument:", insertResult.insertedId);
-    } finally {
-        // Verbindung schließen
-        await client.close();
-    }
-}
-
-run().catch(console.dir);

@@ -479,3 +479,72 @@ kommentare: [],
 ---
 
 ---
+
+---
+
+## eigen exkurs
+
+## nun möchte ich versuchen anhand der vollständigen rezeptbuch vorlage von mir selbst ein formular erstellen welches mich nur nach den sachen fragt die notwendig sind um ein rezept zu erstellen und es gleichzeitig auch in die db speichern und ein render produkt card elemt erschaffen welches wir mit den eben zugeführten daten aus der db rendern
+
+### step 1
+
+erstellen eines html formulares zum einholen und übergeben der daten
+
+// vollständiger rezeptbuch eintrag
+
+vorlage:
+
+db.rezepte.insertOne({
+titel: "Lachs Tagliatelle mit Zitronensoße",
+kategorien: ["Mittagessen", "Pasta", "Schnell"],
+beschreibung: "Ein köstliches Nudelgericht mit frischem Lachs und einer cremigen Zitronensoße.",
+zutaten: [
+{ name: "Tagliatelle", menge: "200g" },
+{ name: "Lachsfilet", menge: "150g" },
+{ name: "Zitrone", menge: "1 Stück" },
+{ name: "Sahne", menge: "100ml" },
+{ name: "Petersilie", menge: "2 EL" },
+{ name: "Olivenöl", menge: "1 EL" },
+],
+anweisungen:
+"1. Die Tagliatelle nach Packungsanweisung kochen. 2. Den Lachs in Olivenöl anbraten. 3. Sahne und Zitronensaft hinzufügen und aufkochen. 4. Mit Salz und Pfeffer würzen und die Nudeln unterheben. 5. Mit Petersilie garnieren.",
+bilder: [
+"https://example.com/images/lachs_tagliatelle1.jpg",
+"https://example.com/images/lachs_tagliatelle2.jpg",
+],
+autor_id: ObjectId("6511ae27f1a1bc1d12345678"),
+bewertungen: [
+{
+benutzer_id: ObjectId("6511b828f1a1bc1d87654321"),
+bewertung: 4,
+kommentar: "Lecker, aber hätte etwas mehr Zitronengeschmack vertragen können.",
+datum: ISODate("2024-09-24T11:15:10Z"),
+},
+{
+benutzer_id: ObjectId("6511c728f1a1bc1d11223344"),
+bewertung: 5,
+kommentar: "Perfekt, werde es wieder kochen!",
+datum: ISODate("2024-09-25T09:30:45Z"),
+},
+],
+kommentare: [
+{
+benutzer_id: ObjectId("6511b828f1a1bc1d87654321"),
+kommentar: "Tolles Rezept, danke fürs Teilen!",
+datum: ISODate("2024-09-24T10:45:00Z"),
+},
+{
+benutzer_id: ObjectId("6511b828f1a1bc1d87654666"),
+kommentar:
+"Hey ObjectID('6511b828f1a1bc1d87654666') benutz doch einach das nächste mal etwas mehr zitrone!",
+datum: ISODate("2024-09-24T10:45:00Z"),
+},
+],
+erstellt_am: ISODate("2024-09-22T13:40:00Z"),
+});
+
+---
+
+---
+
+## html-formular

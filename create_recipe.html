@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rezept hinzufügen</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <h1>Neues Rezept hinzufügen</h1>
+        <form id="recipeForm">
+            <label for="titel">Titel:</label>
+            <input type="text" id="titel" name="titel" required /><br /><br />
+
+            <label for="kategorien">Kategorien (kommagetrennt):</label>
+            <input type="text" id="kategorien" name="kategorien" required /><br /><br />
+
+            <label for="beschreibung">Beschreibung:</label>
+            <textarea id="beschreibung" name="beschreibung" required></textarea><br /><br />
+
+            <label for="zutaten">Zutaten (Format: Name, Menge):</label>
+            <textarea id="zutaten" name="zutaten" required></textarea><br /><br />
+
+            <label for="zubereitungsdauer">Zubereitungsdauer (in Minuten):</label>
+            <input
+                type="number"
+                id="zubereitungsdauer"
+                name="zubereitungsdauer"
+                required /><br /><br />
+
+            <label for="bewertungen">Bewertungen (BenutzerID, Bewertung, Kommentar):</label>
+            <textarea id="bewertungen" name="bewertungen"></textarea><br /><br />
+
+            <label for="kommentare">Kommentare (BenutzerID, Kommentar):</label>
+            <textarea id="kommentare" name="kommentare"></textarea><br /><br />
+
+            <button type="submit">Rezept speichern</button>
+        </form>
+
+        <div id="recipeCardContainer"></div>
+
+        <script src="app.js"></script>
+    </body>
+</html>

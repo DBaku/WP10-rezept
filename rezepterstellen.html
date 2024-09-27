@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rezept Hinzufügen</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                margin: 20px;
+            }
+            label {
+                display: block;
+                margin-top: 10px;
+            }
+            input,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+            }
+            button {
+                margin-top: 20px;
+                padding: 10px 15px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rezept Hinzufügen</h1>
+
+        <form id="rezeptForm">
+            <label for="titel">Titel:</label>
+            <input type="text" id="titel" name="titel" required />
+
+            <label for="beschreibung">Beschreibung:</label>
+            <textarea id="beschreibung" name="beschreibung" rows="4" required></textarea>
+
+            <label for="kategorien">Kategorien (kommagetrennt):</label>
+            <input type="text" id="kategorien" name="kategorien" required />
+
+            <label for="zutaten">Zutaten (Format: Name:Menge, getrennt durch Komma):</label>
+            <textarea id="zutaten" name="zutaten" rows="4" required></textarea>
+
+            <label for="zubereitungsdauer">Zubereitungsdauer (Minuten):</label>
+            <input type="number" id="zubereitungsdauer" name="zubereitungsdauer" required />
+
+            <label for="autor">Autor ID:</label>
+            <input type="text" id="autor" name="autor" required />
+
+            <button type="submit">Rezept Speichern</button>
+        </form>
+
+        <script>
+            document.getElementById("rezeptForm").addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const formData = {
+                    titel: document.getElementById("titel").value,
+                    beschreibung: document.getElementById("beschreibung").value,
+                    kategorien: document.getElementById("kategorien").value.split(","),
+                    zutaten: document
+                        .getElementById("zutaten")
+                        .value.split(",")
+                        .map((item) => {
+                            const [name, menge] = item.split(":");
+                            return { name, menge };
+                        }),
+                    zubereitungsdauer: parseInt(document.getElementById("zubereitungsdauer").value),
+                    autor_id: document.getElementById("autor").value,
+                };
+
+                try {
+                    const response = await fetch("/rezepte", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(formData),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert("Rezept erfolgreich hinzugefügt");
+                        console.log(result);
+                    } else {
+                        alert("Fehler beim Hinzufügen des Rezepts");
+                        console.error(result);
+                    }
+                } catch (error) {
+                    console.error("Fehler:", error);
+                }
+            });
+        </script>
+    </body>
+</html>

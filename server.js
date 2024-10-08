@@ -84,7 +84,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/rezepterstellen", (req, res) => {
-    res.send("");
+    res.send("hallo");
 });
 // Server starten
 const PORT = 3000;

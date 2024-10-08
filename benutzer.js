@@ -9,6 +9,51 @@ db.benutzer.insertOne({
 });
 
 db.benutzer.insertOne({
+    name: "Odysseus",
+    profiltext:
+        "Über mich... König von Ithaka und Held der Odyssee, geboren am 15. 4. 1250 v. Chr., nach vielen Abenteuern verstorben.",
+    geburtstag: "1250-04-15",
+    links: {
+        github: "https://github.com/Odysseus-Journey",
+        instagram: "https://www.instagram.com/odysseus.travels/",
+        wikipedia: "https://de.wikipedia.org/wiki/Odysseus",
+    },
+    followers: [],
+    following: [],
+    rezeptbuch: [],
+});
+
+db.benutzer.insertOne({
+    name: "Perseus",
+    profiltext:
+        "Über mich... Held, Bezwinger der Medusa, geboren am 12. 10. 1295 v. Chr., als Sterblicher schließlich verstorben.",
+    geburtstag: "1295-10-12",
+    links: {
+        github: "https://github.com/Perseus-Medusa",
+        instagram: "https://www.instagram.com/perseus.heroic/",
+        wikipedia: "https://de.wikipedia.org/wiki/Perseus",
+    },
+    followers: [],
+    following: [],
+    rezeptbuch: [],
+});
+
+db.benutzer.insertOne({
+    name: "Hera",
+    profiltext:
+        "Über mich... Göttin der Ehe und Familie, geboren als Schwester und Gemahlin von Zeus, keine Enddaten, da unsterblich.",
+    geburtstag: "1100-03-03",
+    links: {
+        github: "https://github.com/Hera-Olymp",
+        instagram: "https://www.instagram.com/queen.of.gods/",
+        wikipedia: "https://de.wikipedia.org/wiki/Hera",
+    },
+    followers: [],
+    following: [],
+    rezeptbuch: [],
+});
+
+db.benutzer.insertOne({
     name: "Achilles",
     profiltext:
         "Über mich... Größter Krieger der Griechen im Trojanischen Krieg, geboren am 11. 8. 1250 v. Chr., gestorben durch eine tödliche Verletzung an der Ferse.",

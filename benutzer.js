@@ -8,6 +8,21 @@ db.benutzer.insertOne({
     rezeptbuch: [],
 });
 
+db.benutzer.insertOne({
+    name: "Achilles",
+    profiltext:
+        "Über mich... Größter Krieger der Griechen im Trojanischen Krieg, geboren am 11. 8. 1250 v. Chr., gestorben durch eine tödliche Verletzung an der Ferse.",
+    geburtstag: "1250-08-11",
+    links: {
+        github: "https://github.com/Achilles-Hero",
+        instagram: "https://www.instagram.com/achilles.fury/",
+        wikipedia: "https://de.wikipedia.org/wiki/Achilles",
+    },
+    followers: [],
+    following: [],
+    rezeptbuch: [],
+});
+
 _id: ObjctId("66f3a6347e0bfc1fbe77718f");
 name: "Benutzername";
 profiltext: "Über mich..., geboren am 2. 7. 1877 in Calw (Württemberg), gestorben a…";

@@ -1,13 +1,14 @@
 {
     "folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../mongo-playground"
-		}
-	],
+        {
+            "path": "."
+        },
+        {
+            "path": "../mongo-playground"
+        }
+    ],
     "settings": {
-        "liveServer.settings.multiRootWorkspaceName": "WP10-rezept"
+        "liveServer.settings.multiRootWorkspaceName": "WP10-rezept",
+        "mdb.confirmRunAll": false
     }
 }

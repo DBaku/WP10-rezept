@@ -83,7 +83,7 @@ app.get("/", (req, res) => {
     res.send("Hallo, Welt! hallo hallo hallo ");
 });
 
-app.get("/rezepterstellen", (req, res) => {
+app.get("/create_recipe", (req, res) => {
     res.send("hallo");
 });
 // Server starten

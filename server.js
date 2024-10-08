@@ -80,7 +80,7 @@ app.get("/rezepte", async (_req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("Hallo, Welt! hallo hallo ");
+    res.send("Hallo, Welt! hallo hallo hallo ");
 });
 
 app.get("/rezepterstellen", (req, res) => {

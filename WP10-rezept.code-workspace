@@ -9,6 +9,6 @@
     ],
     "settings": {
         "liveServer.settings.multiRootWorkspaceName": "WP10-rezept",
-        "mdb.confirmRunAll": false
+        "mdb.confirmRunAll": true
     }
 }
